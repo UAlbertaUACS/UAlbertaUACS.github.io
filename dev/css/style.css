@@ -34,6 +34,12 @@ a:hover {
   transition: all 0.5s ease-in-out;
 }
 
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .p-r {
   position: relative;
 }
