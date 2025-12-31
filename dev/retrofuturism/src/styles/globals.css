@@ -1,0 +1,278 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  /* Vaporwave Palette */
+  --background: #120458;
+  /* Deep Indigo */
+  --foreground: #ffffff;
+  --card: #1a0b6e;
+  --card-foreground: #ffffff;
+  --popover: #1a0b6e;
+  --popover-foreground: #ffffff;
+  --primary: #ff71ce;
+  /* Neon Pink */
+  --primary-foreground: #000000;
+  --secondary: #01cdfe;
+  /* Cyan */
+  --secondary-foreground: #000000;
+  --muted: #2d1b8e;
+  --muted-foreground: #b967ff;
+  --accent: #b967ff;
+  /* Purple */
+  --accent-foreground: #ffffff;
+  --destructive: #ff0055;
+  --destructive-foreground: #ffffff;
+  --border: #b967ff;
+  --input: #2d1b8e;
+  --input-background: #000000;
+  --switch-background: #2d1b8e;
+
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #01cdfe;
+
+  /* Chart colors adapted for Vaporwave */
+  --chart-1: #ff71ce;
+  --chart-2: #01cdfe;
+  --chart-3: #b967ff;
+  --chart-4: #05ffa1;
+  /* Neon Green */
+  --chart-5: #fffb96;
+  /* Pale Yellow */
+
+  --radius: 0rem;
+  /* Retro items usually have sharp corners */
+
+  /* Sidebar variables adapted */
+  --sidebar: #0f0248;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ff71ce;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #2d1b8e;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #b967ff;
+  --sidebar-ring: #01cdfe;
+}
+
+.dark {
+  /* Dark mode is the default/same as root for Vaporwave usually */
+  --background: #0d0235;
+  --foreground: #ffffff;
+  --card: #150650;
+  --card-foreground: #ffffff;
+  --popover: #150650;
+  --popover-foreground: #ffffff;
+  --primary: #ff71ce;
+  --primary-foreground: #000000;
+  --secondary: #01cdfe;
+  --secondary-foreground: #000000;
+  --muted: #251268;
+  --muted-foreground: #a64bf4;
+  --accent: #a64bf4;
+  --accent-foreground: #ffffff;
+  --destructive: #ff0055;
+  --destructive-foreground: #ffffff;
+  --border: #a64bf4;
+  --input: #251268;
+  --ring: #01cdfe;
+
+  --chart-1: #ff71ce;
+  --chart-2: #01cdfe;
+  --chart-3: #b967ff;
+  --chart-4: #05ffa1;
+  --chart-5: #fffb96;
+
+  --sidebar: #0a012e;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ff71ce;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #251268;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #a64bf4;
+  --sidebar-ring: #01cdfe;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom Animations */
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-grid-move: gridMove 20s linear infinite;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Courier New', Courier, monospace;
+    /* Retro terminal feel */
+    overflow-x: hidden;
+  }
+}
+
+/* Typography Overrides */
+@layer base {
+  :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-shadow: 2px 2px 0px var(--secondary);
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: var(--primary);
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: var(--secondary);
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+/* Retrofuturism Vaporwave Animations and Utilities */
+
+/* Scanline Effect */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.2));
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.6;
+}
+
+/* Moving Perspective Grid */
+@keyframes gridMove {
+  0% {
+    transform: perspective(500px) rotateX(60deg) translateY(0);
+  }
+
+  100% {
+    transform: perspective(500px) rotateX(60deg) translateY(40px);
+  }
+}
+
+.vaporwave-grid-container {
+  position: fixed;
+  bottom: 0;
+  left: -50%;
+  width: 200%;
+  height: 50%;
+  /* Bottom half of the screen */
+  overflow: hidden;
+  z-index: -1;
+  background: linear-gradient(to top, #120458 0%, transparent 100%);
+}
+
+.vaporwave-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(to right, rgba(185, 103, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(185, 103, 255, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 2s linear infinite;
+  /* Faster for the driving feel */
+  transform-origin: 50% 100%;
+}
+
+/* Sun Effect */
+.vaporwave-sun {
+  position: fixed;
+  bottom: 30%;
+  /* Sit on the horizon */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(to top, #ff71ce, #fffb96);
+  border-radius: 50%;
+  z-index: -2;
+  box-shadow: 0 0 40px #ff71ce;
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 60%, transparent 65%, black 65%, black 75%, transparent 75%, transparent 80%, black 80%, black 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 60%, transparent 65%, black 65%, black 75%, transparent 75%, transparent 80%, black 80%, black 100%);
+}
+
+.retro-shadow {
+  box-shadow: 4px 4px 0px var(--secondary);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px currentColor;
+}
