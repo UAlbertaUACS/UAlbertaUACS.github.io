@@ -47,6 +47,7 @@ export default function App() {
 
       <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
+      {/* Main Content  (Comment to force file update with gh-pages)*/}
       <main className="pt-24 relative z-10">
         {renderPage()}
       </main>
