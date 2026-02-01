@@ -126,7 +126,7 @@ export function Documents() {
   };
 
   return (
-    <div className="min-h-screen relative z-10 px-4 sm:px-6 lg:px-8 pb-20">
+    <div className="min-h-screen relative z-[60] px-4 sm:px-6 lg:px-8 pb-20">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-12 mt-8 text-center">

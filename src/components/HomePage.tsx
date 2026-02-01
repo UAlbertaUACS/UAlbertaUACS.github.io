@@ -112,7 +112,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
         <div className="mt-24 text-center">
           <p className="text-sm text-white/50 uppercase tracking-[0.5em]">
-            Est. 2025 // Sector 7
+            Est. 1978
           </p>
         </div>
       </div>

@@ -1,30 +1,37 @@
-import { useState } from 'react';
 import type { Page } from '../App';
+
+import { useForm, ValidationError } from '@formspree/react';
 
 interface ContactProps {
   onNavigate: (page: Page) => void;
 }
 
 export function Contact({ onNavigate }: ContactProps) {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+  // TODO: Replace "YOUR_FORM_ID" with your actual Formspree Form ID
+  const [state, handleSubmit] = useForm("xkoznynw");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('TRANSMISSION SENT! We will decrypt your message shortly.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  if (state.succeeded) {
+    return (
+      <div className="min-h-screen relative z-10 px-4 sm:px-6 lg:px-8 pb-20 flex items-center justify-center">
+        <div className="max-w-2xl w-full bg-black/60 backdrop-blur-md border-2 border-green-500 p-8 retro-shadow text-center">
+          <h2 className="text-3xl text-green-500 font-bold mb-6 animate-pulse">
+            TRANSMISSION_SUCCESSFUL
+          </h2>
+          <p className="text-white text-xl mb-8 font-mono">
+            Your message has been encrypted and sent to our mainframe.
+            <br />
+            We will respond once decryption is complete.
+          </p>
+          <button
+            onClick={() => onNavigate('contact')}
+            className="bg-green-600 hover:bg-green-500 text-black font-bold py-3 px-8 border-2 border-white retro-shadow transition-all"
+          >
+            SEND_ANOTHER
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen relative z-10 px-4 sm:px-6 lg:px-8 pb-20">
@@ -130,12 +137,11 @@ export function Contact({ onNavigate }: ContactProps) {
                       type="text"
                       id="name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
                       required
                       className="w-full bg-black/50 border-2 border-white/20 p-3 text-white focus:border-primary focus:outline-none focus:shadow-[0_0_15px_rgba(255,113,206,0.5)] transition-all font-mono"
                       placeholder="ENTER_NAME"
                     />
+                    <ValidationError prefix="Name" field="name" errors={state.errors} />
                   </div>
 
                   <div className="space-y-2">
@@ -146,12 +152,11 @@ export function Contact({ onNavigate }: ContactProps) {
                       type="email"
                       id="email"
                       name="email"
-                      value={formData.email}
-                      onChange={handleChange}
                       required
                       className="w-full bg-black/50 border-2 border-white/20 p-3 text-white focus:border-primary focus:outline-none focus:shadow-[0_0_15px_rgba(255,113,206,0.5)] transition-all font-mono"
                       placeholder="ENTER_EMAIL"
                     />
+                    <ValidationError prefix="Email" field="email" errors={state.errors} />
                   </div>
 
                   <div className="space-y-2">
@@ -162,12 +167,11 @@ export function Contact({ onNavigate }: ContactProps) {
                       type="text"
                       id="subject"
                       name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
                       required
                       className="w-full bg-black/50 border-2 border-white/20 p-3 text-white focus:border-primary focus:outline-none focus:shadow-[0_0_15px_rgba(255,113,206,0.5)] transition-all font-mono"
                       placeholder="ENTER_SUBJECT"
                     />
+                    <ValidationError prefix="Subject" field="subject" errors={state.errors} />
                   </div>
 
                   <div className="space-y-2">
@@ -177,20 +181,20 @@ export function Contact({ onNavigate }: ContactProps) {
                     <textarea
                       id="message"
                       name="message"
-                      value={formData.message}
-                      onChange={handleChange}
                       required
                       rows={5}
                       className="w-full bg-black/50 border-2 border-white/20 p-3 text-white focus:border-primary focus:outline-none focus:shadow-[0_0_15px_rgba(255,113,206,0.5)] transition-all font-mono resize-none"
                       placeholder="TYPE_YOUR_MESSAGE_HERE..."
                     />
+                    <ValidationError prefix="Message" field="message" errors={state.errors} />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-primary to-purple-600 text-white font-bold py-4 uppercase tracking-[0.2em] hover:from-white hover:to-white hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(255,113,206,0.4)] border-2 border-transparent hover:border-primary"
+                    disabled={state.submitting}
+                    className="w-full bg-gradient-to-r from-primary to-purple-600 text-white font-bold py-4 uppercase tracking-[0.2em] hover:from-white hover:to-white hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(255,113,206,0.4)] border-2 border-transparent hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    INITIALIZE_UPLOAD
+                    {state.submitting ? 'TRANSMITTING...' : 'INITIALIZE_UPLOAD'}
                   </button>
                 </form>
               </div>

@@ -33,6 +33,14 @@ export function AboutUs() {
       color: 'green'
     },
     {
+      id: 8,
+      name: 'Sanika Verma',
+      position: 'Co-VP External',
+      bio: "Hi! I am Sanika Verma, a 3rd year Computing Science Honors student here at the University. I love software development, and solving bugs is really something that makes me happy! Other than that, my hobbies are painting swimming and traveling to different places!",
+      image: '/img/sanika.jpg',
+      color: 'cyan'
+    },
+    {
       id: 5,
       name: 'Ratidzo Mushangwe',
       position: 'VP Social',
