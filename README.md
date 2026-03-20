@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# Undergraduate Association of Computing Science (UACS) Website 💻✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The official website for the **Undergraduate Association of Computing Science** at the University of Alberta (U of A). This repository holds the React-based frontend for the UACS website, which uses a "retrofuturism" design aesthetic that combines retro  terminal and futuristic cyberpunk themes with modern UI components.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Retrofuturistic UI**: A dark and contrasting theme featuring neon accents, terminal-style typography, and cyber-inspired borders.
+- **Dynamic Event Calendar**: Keep track of upcoming UACS events, Doughnut and Coffee Society meetings, and LAN parties.
+- **Responsive Layout**: Built with modern CSS to scale across mobile, tablet, and desktop devices.
+- **Accessible Components**: Powered by Radix UI primitives for robust accessibility and keyboard navigation.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project is built with a modern frontend stack:
+- **Framework**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/) for lightning-fast HMR and optimized builds
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) for utility-first styling
+- **Components**: [Radix UI](https://www.radix-ui.com/) (Accordion, Dialog, Tabs, etc.)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Others**: React Hook Form, Embla Carousel, Recharts, Sonner (for toast notifications), Next Themes (for theming support)
 
-## Expanding the ESLint configuration
+## 🏗️ Architecture & Design Philosophy
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This website is designed as a single-page React app, focusing on maintaining performance whilst still making an interesting and stylized user experience.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Component-Driven Design**: The UI is broken down into small, reusable Radix UI primitives and custom components (e.g., `HomePage`, `Navigation`).
+- **Styling Strategy**: Tailwind CSS is used primarily for utility-classes, creating a strong, cohesive "retrofuturistic" design system defined in `globals.css` using custom CSS properties.
+- **Data Management**: Static data (like the events list) is decoupled from the UI components and stored in the `src/data/` directory, making updates easy and straightforward for future execs.
+- **Vite & Tooling**: Using Vite creates an easy-to-use, fast development environment and an optimized production build. ESLint rules are also used to enforece code quality and maintainability.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📁 Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Here is a quick overview of the significant directories and files:
+
+```
+├── public/                 # Static assets (images, favicon)
+├── src/                    # Application source code
+│   ├── components/         # Reusable React components (HomePage, Navigation, AboutUs...)
+│   ├── data/               # Static data constants (events.ts...)
+│   ├── styles/             # Global CSS and Tailwind inputs (globals.css)
+│   ├── App.tsx             # Main application layout and routing
+│   └── main.tsx            # React entry point
+├── package.json            # Project dependencies and script definitions
+├── tsconfig.json           # TypeScript configuration
+├── eslint.config.js        # ESLint flat config
+└── vite.config.ts          # Vite configuration
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🤝 Contributors
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Layne Pitman
