@@ -2,55 +2,63 @@ export function AboutUs() {
   const executives = [
     {
       id: 1,
-      name: 'Armaan Singh',
+      name: 'Layne Pitman',
       position: 'President',
       bio: '',
-      image: '/img/armaan.jpg',
+      image: '/img/layne.jpg',
       color: 'pink'
     },
     {
       id: 2,
-      name: 'Layne Pitman',
+      name: 'Sehyun Kim',
       position: 'VP Administration',
-      bio: "Hello UACS! I'm Layne Pitman, and I wanna say thank you to everyone who voted for me, I appreciate every single vote that helped me get here. I'm super excited to get working with everyone to bring UACS back to an accessible and functional student group! I swear I'm gonna change the website, but it'll take some time, so if you have any ideas for things you'd like to see in the meantime, absolutely let me and the rest of the execs know!",
-      image: '/img/layne.jpg',
+      bio: '',
+      image: '/img/tanisha.jpg',
       color: 'cyan'
     },
     {
       id: 3,
-      name: 'Tommy Nguyen',
+      name: 'Raphael Ho',
       position: 'VP Internal',
-      bio: "Tommy Nguyen, VP Internal UACS. Turns \"we’ll figure it out later\" into actual events. Computer Science (AI). Still figuring it out.",
-      image: '/img/tommy.JPG',
+      bio: '',
+      image: '/img/tanisha.jpg',
       color: 'purple'
     },
     {
       id: 4,
       name: 'Pragati Puri',
       position: 'VP Finance',
-      bio: "Pragati is a second year Computing Science student at University of Alberta. In her field, she enjoys tackling challenging coding problems, developing innovative solutions, and building meaningful connections with the people who share her interests. In her free time, you can find her reading novels or writing diary entries. Something interesting about Pragati is that she’s always up for a coffee chat to exchange thoughts with fellow tech enthusiasts.",
+      bio: '',
       image: '/img/pragati.jpeg',
       color: 'green'
     },
     {
       id: 8,
-      name: 'Sanika Verma',
-      position: 'Co-VP External',
-      bio: "Hi! I am Sanika Verma, a 3rd year Computing Science Honors student here at the University. I love software development, and solving bugs is really something that makes me happy! Other than that, my hobbies are painting swimming and traveling to different places!",
-      image: '/img/sanika.jpg',
+      name: 'TBA',
+      position: 'VP External',
+      bio:'',
+      image: '/img/tanisha.jpg',
       color: 'cyan'
     },
     {
       id: 5,
-      name: 'Ratidzo Mushangwe',
+      name: 'TBA',
       position: 'VP Social',
       bio: '',
       image: '/img/ratidzo.jpg',
       color: 'yellow'
     },
     {
+      id: 9,
+      name: 'Jordan Antonio',
+      position: 'VP Communications',
+      bio: '',
+      image: '/img/tanisha.jpg',
+      color: 'yellow'
+    },
+    {
       id: 6,
-      name: 'Tanisha Dhull',
+      name: 'TBA',
       position: 'Senior Representative',
       bio: '',
       image: '/img/tanisha.jpg',
@@ -58,10 +66,10 @@ export function AboutUs() {
     },
     {
       id: 7,
-      name: 'Jotsaroop Singh',
+      name: 'TBA',
       position: 'Junior Representative',
-      bio: "Hi, I’m Jotsaroop Singh, a second-year Computer Science Honours student. As the Junior Representative for UACS, I’m excited to connect with first- and second year students, help you feel at home in the club, and support you as you get involved. I’m looking forward to what we’ll achieve together!",
-      image: '/img/jotsaroop.jpg',
+      bio: '',
+      image: '/img/tanisha.jpg',
       color: 'pink'
     }
   ];
